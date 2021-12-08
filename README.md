@@ -25,12 +25,12 @@
   <br/>
   <br/>
 <p align="center">
-    <img src="https://cdn-icons.flaticon.com/png/512/1183/premium/1183672.png?token=exp=1638992190~hmac=2f1b0705f51360566b4350fb40c62c6d" width="240"/>
+    <img src="https://www.pinclipart.com/picdir/big/537-5374089_react-js-logo-clipart.png" width="240"/>
 </p>
 <br>
 <br>
 <p align="center">
-    <img src="https://styled-components.com/logo.png" width="240">
+    <img src="https://styled-components.com/logo.png" width="200">
 </p>
   
   
