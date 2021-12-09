@@ -8,6 +8,7 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: 'Josefin Sans', sans-serif;
+    color: ${colors.lightTheme.VeryDarkGrayishBlue}
 }
 
 body, html{

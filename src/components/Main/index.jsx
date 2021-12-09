@@ -1,5 +1,6 @@
 import React from 'react';
 import {Master, Head, Title, InTesk} from './main';
+import Task from '../Task';
 
 import IconTheme from '../../images/icon-moon.svg';
 
@@ -11,7 +12,7 @@ const Main = () => {
                     <h1>TODO</h1>
                     <img src={IconTheme} alt="Alternar tema" />
                 </Title>
-                <InTesk/>
+                <Task/>
             </Head>
         </Master>
     );

@@ -25,10 +25,5 @@ export const Title = styled.div`
         color: ${colors.lightTheme.VeryLightGray};
     }
 `;
-export const InTesk = styled.input`
-    width: 100%;
-    font-size: 22px;
-    border: none;
-    padding: 8px 4px;
-`;
+
 
