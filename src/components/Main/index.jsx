@@ -1,6 +1,6 @@
 import React from 'react';
 import {Master, Head, Title, InTesk} from './main';
-import Task from '../Task';
+import Task from '../NewTask';
 
 import IconTheme from '../../images/icon-moon.svg';
 

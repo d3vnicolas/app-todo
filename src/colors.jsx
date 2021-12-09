@@ -17,6 +17,6 @@ export const colors = {
     },
     neutralColors : {
         "BrightBlue" : "hsl(220, 98%, 61%)",
-        "CheckBackground" : "linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)",
+        "CheckBackground" : "linear-gradient(160deg, rgba(87,221,255,1) 0%, rgba(192,88,243,1) 65%);",
     }
 }

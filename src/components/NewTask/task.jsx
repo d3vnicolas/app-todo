@@ -8,14 +8,16 @@ export const Wrapper = styled.div`
     background-color: ${colors.lightTheme.VeryLightGray};
     border-radius: 4px;
     overflow: hidden;
+    margin-top: 32px;
 `;
-export const Enter = styled.button`
+export const NewTask = styled.button`
     flex: 1;
     border: none;
     background-color: ${colors.lightTheme.VeryLightGray};
     font-size: 22px;
     line-height: 18px;
     transition: background-color 300ms ease;
+  
 
     &:hover{
         background-color: ${colors.lightTheme.VeryLightGrayishBlue}; 
