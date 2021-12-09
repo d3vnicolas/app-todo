@@ -30,4 +30,10 @@ body, html{
     ;
 }
 
+.container{
+    margin: 0 auto;
+    max-width: 550px;
+    width: 100%;
+}
+
 `;

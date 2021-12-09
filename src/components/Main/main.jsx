@@ -1,10 +1,8 @@
-import styled from "styled-components";
-import { colors } from "../../colors";
+import styled from 'styled-components';
+import { colors } from '../../colors';
 
 export const Master = styled.main`
-    width: 100%;
-    max-width: 550px;
-    margin: -220px auto 0 auto;
+    margin: -220px auto 0 auto !important;
 `;
 
 export const Head = styled.header`

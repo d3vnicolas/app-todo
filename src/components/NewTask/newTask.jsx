@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../colors";
 
+
 export const Wrapper = styled.div`
     width: 100%;
     display: flex;
@@ -16,8 +17,10 @@ export const NewTask = styled.button`
     background-color: ${colors.lightTheme.VeryLightGray};
     font-size: 22px;
     line-height: 18px;
-    transition: background-color 300ms ease;
-  
+    transition: all 300ms ease;
+    cursor: pointer;
+    visibility: ${props => props.visibility?'visible':'hidden'};
+    opacity: ${props => props.visibility?'1':'0'};
 
     &:hover{
         background-color: ${colors.lightTheme.VeryLightGrayishBlue}; 
