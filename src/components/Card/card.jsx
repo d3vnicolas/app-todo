@@ -1,0 +1,56 @@
+import styled from 'styled-components';
+import { colors } from '../../colors';
+
+export const Wrapper = styled.div`
+    border-radius: 4px;
+    margin-top: 26px !important;
+    background-color: ${colors.lightTheme.VeryLightGray};
+`;
+
+export const Cards = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+`;
+
+export const Footer = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    padding: 8px;
+`;
+
+export const ItemsLeft = styled.p`
+
+`;
+
+export const Filters = styled.ul`
+    list-style: none;
+    display: flex;
+    li{
+        margin: 0 4px;
+        a{
+            padding: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            color: ${colors.lightTheme.DarkGrayishBlue};
+
+            &:hover{
+                color: ${colors.darkTheme.VeryDarkBlue}
+            }
+        }
+    }
+`;
+
+export const Clear = styled.a`
+    margin: 0;
+    padding: 8px;
+    text-decoration: none;
+    color: ${colors.lightTheme.DarkGrayishBlue};
+
+        &:hover{
+            color: ${colors.darkTheme.VeryDarkBlue}
+        }
+`;
