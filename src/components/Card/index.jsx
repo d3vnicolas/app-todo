@@ -5,7 +5,7 @@ import {Wrapper, Footer, ItemsLeft, Filters, Clear} from './card';
 const Card = (props) => {
     return (
         <Wrapper className="container">
-            <TaskList handleRemoveTask={props.handleRemoveTask} tasks={props.tasks} />
+            <TaskList handleTaskComplete={props.handleTaskComplete} handleRemoveTask={props.handleRemoveTask} tasks={props.tasks} />
             <Footer>
                 <ItemsLeft>
                   {props.handleTaskTotal()} Tarefas restantes
@@ -15,8 +15,8 @@ const Card = (props) => {
                     <li><a href="">Active</a></li>
                     <li><a href="">Completed</a></li>
                 </Filters>
-                <Clear href="">
-                    Clear completed
+                <Clear onClick={props.handleClickRemoveCompletes}>
+                    Remover concluídas
                 </Clear>
             </Footer>
         </Wrapper>

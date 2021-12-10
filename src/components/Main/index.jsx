@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Master, Head, Title} from './main';
 import NewTask from '../NewTask';
 import Card from '../Card';
@@ -6,34 +6,8 @@ import Card from '../Card';
 import IconTheme from '../../images/icon-moon.svg';
 
 const Main = () => {
-    const [tasks, setTasks] = useState([
-        {
-            id: 1,
-            title: "Ler por 1 hora",
-            completed: false
-        },
-        {
-            id: 2,
-            title: "Estudar Hooks",
-            completed: false
-        },
-        {
-            id: 3,
-            title: "Estudar Local Storage",
-            completed: false
-        },
-        {
-            id: 4,
-            title: "Estudar Cookies",
-            completed: false
-        },
-        {
-            id: 5,
-            title: "Finalizar To Do App",
-            completed: false
-        }
-    ]);
-    
+    const [tasks, setTasks] = useState([]);
+
     const handleTaskTotal = () => {
         let count = 0;
         tasks.map(task => {
@@ -43,8 +17,8 @@ const Main = () => {
     }
 
     const handleRemoveTask = (taskId) => {
-          const tasksAfter = tasks.filter(task => task.id !== taskId);
-          setTasks(tasksAfter);
+        const tasksAfter = tasks.filter(task => task.id !== taskId);
+        setTasks(tasksAfter);
     }
 
     const handleAddTask = (taskTitle) => {
@@ -54,10 +28,28 @@ const Main = () => {
             completed: false
         }];
 
-        setTasks(taskAdd);
+        setTasks(taskAdd)
     }
+
+    const handleTaskComplete = (taskId) => {
+        let tasksAfter = [];
+        for (let i = 0; i < tasks.length; i++) {
+            if(tasks[i].id === taskId){
+                tasks[i].completed = !tasks[i].completed;
+            }
+            tasksAfter.push(tasks[i]);
+        }
+        setTasks(tasksAfter);
+    }
+
+    const handleClickRemoveCompletes = () => {
+        const tasksAfter = tasks.filter(task => task.completed === false);
+        setTasks(tasksAfter);
+    }
+
+
     return (
-        <Master className='container'>
+        <Master className='container' >
             <Head>
                 <Title> 
                     <h1>TODO</h1>
@@ -65,7 +57,7 @@ const Main = () => {
                 </Title>
                 <NewTask handleAddTask={handleAddTask}/>
             </Head>
-            <Card tasks={tasks} handleRemoveTask={handleRemoveTask} handleTaskTotal={handleTaskTotal} />
+            <Card tasks={tasks} handleRemoveTask={handleRemoveTask} handleTaskTotal={handleTaskTotal} handleTaskComplete={handleTaskComplete} handleClickRemoveCompletes={handleClickRemoveCompletes}/>
         </Master>
     );
 }

@@ -38,12 +38,14 @@ export const Filters = styled.ul`
     }
 `;
 
-export const Clear = styled.a`
+export const Clear = styled.button`
     margin: 0;
-    padding: 8px;
+    padding: 4px;
     text-decoration: none;
     color: ${colors.lightTheme.DarkGrayishBlue};
-
+    background: none;
+    border: none;
+    cursor: pointer;
         &:hover{
             color: ${colors.darkTheme.VeryDarkBlue}
         }

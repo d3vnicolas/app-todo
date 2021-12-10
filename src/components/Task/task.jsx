@@ -18,6 +18,7 @@ export const Title = styled.h1`
     font-size: 18px;
     font-weight: normal;
     user-select: none;
+    text-decoration: ${props => props.handleStrikeTitle};
 `;
 export const Close = styled.button`
     flex: 1;

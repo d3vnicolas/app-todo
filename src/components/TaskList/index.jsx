@@ -8,7 +8,7 @@ const List = styled.div`
     width: 100%;
 `;
 
-const TaskList = ({handleRemoveTask, tasks}) => {
+const TaskList = ({handleRemoveTask, tasks, handleTaskComplete}) => {
     return (
         <List>
            {tasks.map(task => (
@@ -17,7 +17,8 @@ const TaskList = ({handleRemoveTask, tasks}) => {
                 id={task.id} 
                 title={task.title} 
                 handleRemoveTask={handleRemoveTask}
-                completed={task.completed} 
+                completed={task.completed}
+                handleTaskComplete={handleTaskComplete}
            />
            ))}
         </List>

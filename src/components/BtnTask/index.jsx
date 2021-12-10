@@ -44,12 +44,16 @@ const Button = styled.div`
     
 `;
 
-const BtnTask = (props) => {
-    
+const BtnTask = ({completed, id, handleTaskComplete}) => {
+
+    const handleCheckButton = () => {
+        return completed?'checked':'';
+    }
+
     return (
         <Button>
-            <input type="checkbox" id={props.id} />
-            <label htmlFor={props.id}>
+            <input onClick={() => handleTaskComplete(id)} defaultChecked={handleCheckButton()} type="checkbox" id={id} />
+            <label htmlFor={id}>
                 <img src={CheckIcon} />
             </label>
         </Button>
