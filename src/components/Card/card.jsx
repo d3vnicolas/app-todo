@@ -7,19 +7,13 @@ export const Wrapper = styled.div`
     background-color: ${colors.lightTheme.VeryLightGray};
 `;
 
-export const Cards = styled.div`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-`;
-
 export const Footer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     font-size: 12px;
-    padding: 8px;
+    padding: 8px 24px;
 `;
 
 export const ItemsLeft = styled.p`

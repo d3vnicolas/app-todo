@@ -8,6 +8,7 @@ const Button = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
+    padding: 0 12px;
 
     input{
         position: absolute;
@@ -42,11 +43,12 @@ const Button = styled.div`
     
 `;
 
-const BtnTask = () => {
+const BtnTask = (props) => {
+    
     return (
         <Button>
-            <input type="checkbox" name="checkType" id="checkType" />
-            <label htmlFor="checkType">
+            <input type="checkbox" id={props.id} />
+            <label htmlFor={props.id}>
                 <img src={CheckIcon} />
             </label>
         </Button>

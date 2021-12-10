@@ -19,8 +19,8 @@ export const NewTask = styled.button`
     line-height: 18px;
     transition: all 300ms ease;
     cursor: pointer;
-    visibility: ${props => props.visibility?'visible':'hidden'};
-    opacity: ${props => props.visibility?'1':'0'};
+    visibility: ${props => props.visible?'visible':'hidden'};
+    opacity: ${props => props.visible?'1':'0'};
 
     &:hover{
         background-color: ${colors.lightTheme.VeryLightGrayishBlue}; 
@@ -32,4 +32,5 @@ export const Text = styled.input`
     outline: none;
     font-size: 22px;
     padding: 12px 12px;
+    background-color: ${colors.lightTheme.VeryLightGray};
 `;
