@@ -1,56 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TaskList from '../TaskList';
 import {Wrapper, Footer, ItemsLeft, Filters, Clear} from './card';
 
-const Card = () => {
-    
-    const [tasks ,setTasks] = useState([
-        {
-            id: 1,
-            title: "Ler por 1 hora",
-            completed: false
-        },
-        {
-            id: 2,
-            title: "Estudar Hooks",
-            completed: false
-        },
-        {
-            id: 3,
-            title: "Estudar Local Storage",
-            completed: false
-        },
-        {
-            id: 4,
-            title: "Estudar Cookies",
-            completed: false
-        },
-        {
-            id: 5,
-            title: "Finalizar To Do App",
-            completed: false
-        }
-    ]);
-
-    const taskTotal = () => {
-        let count = 0;
-        tasks.map(task => {
-            if(!task.completed){count++};
-        })
-        return count;
-    }
-
-    const handleRemoveTask = (taskId) => {
-        const tasksAfter = tasks.filter(task => task.id !== taskId);
-        setTasks(tasksAfter);
-    }
-
+const Card = (props) => {
     return (
         <Wrapper className="container">
-            <TaskList handleRemoveTask={handleRemoveTask} tasks={tasks} />
+            <TaskList handleRemoveTask={props.handleRemoveTask} tasks={props.tasks} />
             <Footer>
                 <ItemsLeft>
-                    {taskTotal()} Tarefas restantes
+                  {props.handleTaskTotal()} Tarefas restantes
                 </ItemsLeft>
                 <Filters>
                     <li><a href="">All</a></li>
