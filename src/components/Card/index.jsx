@@ -39,9 +39,15 @@ const Card = () => {
         })
         return count;
     }
+
+    const handleRemoveTask = (taskId) => {
+        const tasksAfter = tasks.filter(task => task.id !== taskId);
+        setTasks(tasksAfter);
+    }
+
     return (
         <Wrapper className="container">
-            <TaskList tasks={tasks} />
+            <TaskList handleRemoveTask={handleRemoveTask} tasks={tasks} />
             <Footer>
                 <ItemsLeft>
                     {taskTotal()} Tarefas restantes

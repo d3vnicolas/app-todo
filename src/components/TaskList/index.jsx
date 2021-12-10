@@ -8,10 +8,18 @@ const List = styled.div`
     width: 100%;
 `;
 
-const TaskList = ({tasks}) => {
+const TaskList = (props) => {
     return (
         <List>
-           {tasks.map(task => (<Task key={task.id} id={task.id} title={task.title} completed={task.completed} />))}
+           {props.tasks.map(task => (
+           <Task 
+                key={task.id} 
+                id={task.id} 
+                title={task.title} 
+                handleRemoveTask={props.handleRemoveTask}
+                completed={task.completed} 
+           />
+           ))}
         </List>
     );
 }

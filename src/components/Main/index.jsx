@@ -1,5 +1,5 @@
 import React from 'react';
-import {Master, Head, Title, InTesk} from './main';
+import {Master, Head, Title} from './main';
 import NewTask from '../NewTask';
 import Card from '../Card';
 

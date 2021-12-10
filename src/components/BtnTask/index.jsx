@@ -31,6 +31,7 @@ const Button = styled.div`
         border: 1px solid ${colors.lightTheme.DarkGrayishBlue};
         margin: 0 8px;
         position: relative;
+        cursor: pointer;
 
         img{
             position: absolute;
