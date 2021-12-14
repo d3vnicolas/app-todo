@@ -1,6 +1,6 @@
 <h1 align="center">
   Faça a sua lista de tarefas 📝<br>
-  E gerencie melhor o seu dia a dia.
+  E gerencie melhor o seu dia.
 </h1>
 <br>
 
