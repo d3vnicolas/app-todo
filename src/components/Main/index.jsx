@@ -13,16 +13,6 @@ const Main = () => {
         setTasks(tasksLocal);
     }, []);
 
-    const handleSaveTasks = (data) => {
-        localStorage.setItem("tasks", JSON.stringify(data));
-        setTasks(data);
-    }
-
-    useEffect(() => {
-        const tasksLocal = JSON.parse(localStorage.getItem("tasks"));
-        setTasks(tasksLocal);
-    }, []);
-
     const saveTasks = (data) => {
         localStorage.setItem("tasks", JSON.stringify(data));
         setTasks(data);
