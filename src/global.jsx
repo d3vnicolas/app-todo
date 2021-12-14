@@ -1,5 +1,4 @@
 import {createGlobalStyle} from "styled-components";
-import { colors } from "./colors";
 
 export default createGlobalStyle`
 
@@ -8,13 +7,14 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: 'Josefin Sans', sans-serif;
-    color: ${colors.lightTheme.VeryDarkGrayishBlue}
+    color: ${props => props.theme.colors.textTasks};
+    user-select: none;
 }
 
 body, html{
     width: 100%;
     height: 100%;
-    background-color: ${colors.lightTheme.VeryLightGrayishBlue};
+    background-color: ${props => props.theme.colors.backgroundBody};
 }
 
 #root{

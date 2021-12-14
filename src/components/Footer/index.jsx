@@ -5,6 +5,10 @@ const Wrapper = styled.footer`
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    p{
+        color: ${props => props.theme.colors.textFooter};
+    }
 `;
 
 const Footer = () => {

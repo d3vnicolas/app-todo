@@ -16,11 +16,19 @@ export const Title = styled.div`
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
+    cursor: pointer;
 
     h1{
         font-size: 40px;
         letter-spacing: 16px;
-        color: ${colors.lightTheme.VeryLightGray};
+        color: ${props => props.theme.colors.textTitle};
+    }
+
+    .icon{
+        width: 32px;
+        height: 32px;
+        background: url(${props => props.theme.image.iconTheme}) center center no-repeat;
+        background-size: cover;
     }
 `;
 

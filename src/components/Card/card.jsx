@@ -4,7 +4,8 @@ import { colors } from '../../colors';
 export const Wrapper = styled.div`
     border-radius: 4px;
     margin-top: 26px !important;
-    background-color: ${colors.lightTheme.VeryLightGray};
+    background-color: ${props => props.theme.colors.backgroundTasks};
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, .2);
 `;
 
 export const Footer = styled.div`
@@ -13,11 +14,11 @@ export const Footer = styled.div`
     justify-content: space-between;
     align-items: center;
     font-size: 12px;
-    padding: 8px 24px;
+    padding: 14px 24px;
 `;
 
 export const ItemsLeft = styled.p`
-
+    color: ${props => props.theme.colors.textTaskFooter}
 `;
 
 export const Filters = styled.ul`
@@ -29,15 +30,15 @@ export const Filters = styled.ul`
             padding: 8px;
             text-decoration: none;
             font-weight: bold;
-            color: ${colors.lightTheme.DarkGrayishBlue};
+            color: ${props => props.theme.colors.textTaskFooter};
 
             &:hover{
-                color: ${colors.darkTheme.VeryDarkBlue}
+                color: ${props => props.theme.colors.textTaskFooterHover}
             }
         }
 
         .active{
-            color: ${colors.neutralColors.BrightBlue};
+            color: ${props => props.theme.colors.textTaskFooterActive};
         }
     }
 `;
@@ -46,11 +47,11 @@ export const Clear = styled.button`
     margin: 0;
     padding: 4px;
     text-decoration: none;
-    color: ${colors.lightTheme.DarkGrayishBlue};
+    color: ${props => props.theme.colors.textTaskFooter};
     background: none;
     border: none;
     cursor: pointer;
         &:hover{
-            color: ${colors.darkTheme.VeryDarkBlue}
+            color: ${props => props.theme.colors.textTaskFooterHover}
         }
 `;

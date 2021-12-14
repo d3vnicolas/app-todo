@@ -28,7 +28,7 @@ const Button = styled.div`
         width: 22px;
         height: 22px;
         border-radius: 50%;
-        border: 1px solid ${colors.lightTheme.DarkGrayishBlue};
+        border: 1px solid ${props => props.theme.colors.borderTasksCircle};
         margin: 0 8px;
         position: relative;
         cursor: pointer;

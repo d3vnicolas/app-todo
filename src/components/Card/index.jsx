@@ -59,12 +59,12 @@ const Card = (props) => {
                 </Routes>
                 <Footer>
                     <ItemsLeft>
-                    {props.handleTaskTotal()} Tarefas restantes
+                        {props.handleTaskTotal()} Tarefas restantes
                     </ItemsLeft>
                     <Filters>
-                        <li><NavLink to="/">All</NavLink></li>
-                        <li><NavLink to="/active">Active</NavLink></li>
-                        <li><NavLink to="/completes">Completed</NavLink></li>
+                        <li><NavLink to="/">Todas</NavLink></li>
+                        <li><NavLink to="/active">Ativas</NavLink></li>
+                        <li><NavLink to="/completes">Finalizadas</NavLink></li>
                     </Filters>
                     <Clear onClick={props.handleClickRemoveCompletes}>
                         Remover concluídas

@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid ${colors.lightTheme.VeryLightGrayishBlue};
+    border-bottom: 1px solid ${props => props.theme.colors.borderTasks};
 
     &:hover > button{
         visibility: visible;
@@ -35,10 +35,10 @@ export const Close = styled.button`
     cursor: pointer;
     
     svg{
-        fill: ${colors.lightTheme.DarkGrayishBlue};
+        fill: ${props => props.theme.colors.iconCross};
         transition: fill 500ms ease;
     }
     &:hover > svg{
-        fill: red;
+        fill: ${props => props.theme.colors.iconCrossHover};
     }
 `;

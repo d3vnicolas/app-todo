@@ -2,10 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {Master, Head, Title} from './main';
 import NewTask from '../NewTask';
 import Card from '../Card';
+import { light, dark } from '../../themes/theme';
 
-import IconTheme from '../../images/icon-moon.svg';
-
-const Main = () => {
+const Main = (props) => {
     const [tasks, setTasks] = useState([]);
     
     useEffect(() => {
@@ -57,13 +56,16 @@ const Main = () => {
         saveTasks(tasksAfter);
     }
 
+    const handleToggleTheme = () => {
+        props.toggleTheme === light ? props.setToggleTheme(dark) : props.setToggleTheme(light);
+    }
 
     return (
         <Master className='container' >
             <Head>
                 <Title> 
                     <h1>TODO</h1>
-                    <img src={IconTheme} alt='Alternar tema' />
+                    <div onClick={handleToggleTheme} className="icon"></div>
                 </Title>
                 <NewTask handleAddTask={handleAddTask}/>
             </Head>

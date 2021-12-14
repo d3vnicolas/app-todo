@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import { colors } from "../../colors";
 
 
 export const Wrapper = styled.div`
     width: 100%;
     display: flex;
     flex-direction: row;
-    background-color: ${colors.lightTheme.VeryLightGray};
+    background-color: ${props => props.theme.colors.backgroundInput};
     border-radius: 4px;
     overflow: hidden;
     margin-top: 32px;
@@ -14,7 +13,7 @@ export const Wrapper = styled.div`
 export const NewTask = styled.button`
     flex: 1;
     border: none;
-    background-color: ${colors.lightTheme.VeryLightGray};
+    background-color: ${props => props.theme.colors.backgroundInput};
     font-size: 22px;
     line-height: 18px;
     transition: all 300ms ease;
@@ -23,7 +22,7 @@ export const NewTask = styled.button`
     opacity: ${props => props.visible?'1':'0'};
 
     &:hover{
-        background-color: ${colors.lightTheme.VeryLightGrayishBlue}; 
+        background-color: ${props => props.theme.colors.backgroundButtonHover}; 
     }
 `;
 export const Text = styled.input`
@@ -31,6 +30,10 @@ export const Text = styled.input`
     border: none;
     outline: none;
     font-size: 22px;
-    padding: 12px 12px;
-    background-color: ${colors.lightTheme.VeryLightGray};
+    padding: 12px 0px 12px 60px;
+    background-color: ${props => props.theme.colors.backgroundInput};
+
+    &::placeholder{
+        color: ${props => props.theme.colors.placeholderInput}
+    }
 `;

@@ -20,7 +20,7 @@ const Task = (props) => {
 
     return (
         <Wrapper>
-            <Text value={inputAdd} onChange={handleChangeInput}/>
+            <Text placeholder="Criar nova tarefa..." value={inputAdd} onChange={handleChangeInput}/>
             <NewTask onClick={handleClickAdd} visible={displayBtn}><GoDiffAdded/></NewTask>
         </Wrapper>
     );
