@@ -35,6 +35,10 @@ export const Filters = styled.ul`
                 color: ${colors.darkTheme.VeryDarkBlue}
             }
         }
+
+        .active{
+            color: ${colors.neutralColors.BrightBlue};
+        }
     }
 `;
 

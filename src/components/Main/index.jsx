@@ -8,6 +8,16 @@ import IconTheme from '../../images/icon-moon.svg';
 const Main = () => {
     const [tasks, setTasks] = useState([]);
 
+    useEffect(() => {
+        const tasksLocal = JSON.parse(localStorage.getItem("tasks"));
+        setTasks(tasksLocal);
+    }, []);
+
+    const saveTasks = (data) => {
+        localStorage.setItem("tasks", JSON.stringify(data));
+        setTasks(data);
+    }
+
     const handleTaskTotal = () => {
         let count = 0;
         tasks.map(task => {
@@ -18,7 +28,7 @@ const Main = () => {
 
     const handleRemoveTask = (taskId) => {
         const tasksAfter = tasks.filter(task => task.id !== taskId);
-        setTasks(tasksAfter);
+        saveTasks(tasksAfter);
     }
 
     const handleAddTask = (taskTitle) => {
@@ -28,7 +38,7 @@ const Main = () => {
             completed: false
         }];
 
-        setTasks(taskAdd)
+        saveTasks(taskAdd);
     }
 
     const handleTaskComplete = (taskId) => {
@@ -39,12 +49,12 @@ const Main = () => {
             }
             tasksAfter.push(tasks[i]);
         }
-        setTasks(tasksAfter);
+        saveTasks(tasksAfter);
     }
 
     const handleClickRemoveCompletes = () => {
         const tasksAfter = tasks.filter(task => task.completed === false);
-        setTasks(tasksAfter);
+        saveTasks(tasksAfter);
     }
 
 
@@ -57,7 +67,13 @@ const Main = () => {
                 </Title>
                 <NewTask handleAddTask={handleAddTask}/>
             </Head>
-            <Card tasks={tasks} handleRemoveTask={handleRemoveTask} handleTaskTotal={handleTaskTotal} handleTaskComplete={handleTaskComplete} handleClickRemoveCompletes={handleClickRemoveCompletes}/>
+            <Card 
+                tasks={tasks} 
+                handleRemoveTask={handleRemoveTask} 
+                handleTaskTotal={handleTaskTotal} 
+                handleTaskComplete={handleTaskComplete} 
+                handleClickRemoveCompletes={handleClickRemoveCompletes}
+            />
         </Master>
     );
 }
