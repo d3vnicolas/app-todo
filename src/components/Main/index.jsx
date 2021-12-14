@@ -7,6 +7,16 @@ import IconTheme from '../../images/icon-moon.svg';
 
 const Main = () => {
     const [tasks, setTasks] = useState([]);
+    
+    useEffect(() => {
+        const tasksLocal = JSON.parse(localStorage.getItem("tasks"));
+        setTasks(tasksLocal);
+    }, []);
+
+    const handleSaveTasks = (data) => {
+        localStorage.setItem("tasks", JSON.stringify(data));
+        setTasks(data);
+    }
 
     useEffect(() => {
         const tasksLocal = JSON.parse(localStorage.getItem("tasks"));
@@ -37,9 +47,9 @@ const Main = () => {
             title: taskTitle,
             completed: false
         }];
-
         saveTasks(taskAdd);
     }
+
 
     const handleTaskComplete = (taskId) => {
         let tasksAfter = [];
