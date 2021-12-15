@@ -11,20 +11,25 @@ import GlobalStyle from './global';
 
 function App() {
 
-  
+  const [themeMod, setThemeMod] = useState(localStorage.getItem("theme"));
 
   useEffect(() => {
     document.body.classList.remove('preload'); //Evita o efeito de transition no body ao carregar a página.
-    localStorage.getItem("theme");
   }, []);
 
   const [toggleTheme, setToggleTheme] = useState(() => {
-    if(window.matchMedia('(prefers-color-scheme: light)').matches){
-      return light
+    console.log(themeMod);
+    if(themeMod !== null){
+      return themeMod === 'dark' ? dark : light;
     }else{
-      return dark
+      if(window.matchMedia('(prefers-color-scheme: light)').matches){
+        return light
+      }else{
+        return dark
+      }
     }
   });
+
   return (
     <>
       <ThemeProvider theme={toggleTheme}>

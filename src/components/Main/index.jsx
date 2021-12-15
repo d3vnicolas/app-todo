@@ -69,7 +69,13 @@ const Main = (props) => {
     }
 
     const handleToggleTheme = () => {
-        props.toggleTheme === light ? props.setToggleTheme(dark) : props.setToggleTheme(light);
+        if(props.toggleTheme === light){
+            props.setToggleTheme(dark);
+            localStorage.setItem("theme", "dark");
+        }else{
+            props.setToggleTheme(light);
+            localStorage.setItem("theme", "light");
+        }
     }
 
     return (
