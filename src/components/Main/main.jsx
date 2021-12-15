@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { colors } from '../../colors';
 
 export const Master = styled.main`
-    margin: -220px auto 0 auto !important;
+    margin-top: -220px !important;
 `;
 
 export const Head = styled.header`

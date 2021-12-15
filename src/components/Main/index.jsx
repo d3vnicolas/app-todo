@@ -79,7 +79,7 @@ const Main = (props) => {
     }
 
     return (
-        <Master className='container' >
+        <Master className='container'>
             <Head>
                 <Title> 
                     <h1>TODO</h1>

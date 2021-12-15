@@ -18,6 +18,7 @@ export const NewTask = styled.button`
     transition: background-color 400ms ease;
     font-size: 22px;
     line-height: 18px;
+    padding: 0 8px;
     transition: all 300ms ease;
     cursor: pointer;
     visibility: ${props => props.visible?'visible':'hidden'};

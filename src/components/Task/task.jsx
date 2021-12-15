@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { colors } from "../../colors";
 
 export const Wrapper = styled.div`
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -18,8 +18,8 @@ export const Title = styled.h1`
     flex: 8;
     font-size: 18px;
     font-weight: normal;
-    user-select: none;
     text-decoration: ${props => props.handleStrikeTitle};
+    padding: 16px 0;
 `;
 export const Close = styled.button`
     flex: 1;
@@ -28,7 +28,7 @@ export const Close = styled.button`
     align-items: center;
     background: none;
     border: none;
-    padding: 16px 0;
+    padding: 14px 0;
     font-size: 22px;
     visibility: hidden;
     opacity: 0;

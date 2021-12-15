@@ -23,7 +23,7 @@ const Card = (props) => {
     }
 
     return (
-        <Wrapper className="container">
+        <Wrapper>
             <Router>
                 <Routes>
                     <Route 
