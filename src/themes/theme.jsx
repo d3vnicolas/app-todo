@@ -26,6 +26,7 @@ export const light = {
         iconTheme: iconMoon
     }
 }
+
 export const dark = {
     colors: {
         backgroundBody: 'hsl(235, 21%, 11%)',

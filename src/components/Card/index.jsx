@@ -29,6 +29,7 @@ const Card = (props) => {
                     <Route 
                         path="/" 
                         element={
+                            props.tasks &&
                             <TaskList 
                                 handleTaskComplete={props.handleTaskComplete} 
                                 handleRemoveTask={props.handleRemoveTask} 
@@ -37,8 +38,9 @@ const Card = (props) => {
                         }
                     />
                     <Route 
-                        path="/active" 
+                        path="/actives" 
                         element={
+                            props.tasks &&
                             <TaskList 
                                 handleTaskComplete={props.handleTaskComplete} 
                                 handleRemoveTask={props.handleRemoveTask} 
@@ -49,6 +51,7 @@ const Card = (props) => {
                     <Route 
                         path="/completes" 
                         element={
+                            props.tasks &&
                             <TaskList 
                                 handleTaskComplete={props.handleTaskComplete} 
                                 handleRemoveTask={props.handleRemoveTask} 
@@ -63,7 +66,7 @@ const Card = (props) => {
                     </ItemsLeft>
                     <Filters>
                         <li><NavLink to="/">Todas</NavLink></li>
-                        <li><NavLink to="/active">Ativas</NavLink></li>
+                        <li><NavLink to="/actives">Ativas</NavLink></li>
                         <li><NavLink to="/completes">Finalizadas</NavLink></li>
                     </Filters>
                     <Clear onClick={props.handleClickRemoveCompletes}>

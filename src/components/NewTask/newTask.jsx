@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     background-color: ${props => props.theme.colors.backgroundInput};
+    transition: background-color 400ms ease;
     border-radius: 4px;
     overflow: hidden;
     margin-top: 32px;
@@ -14,6 +15,7 @@ export const NewTask = styled.button`
     flex: 1;
     border: none;
     background-color: ${props => props.theme.colors.backgroundInput};
+    transition: background-color 400ms ease;
     font-size: 22px;
     line-height: 18px;
     transition: all 300ms ease;
@@ -32,8 +34,10 @@ export const Text = styled.input`
     font-size: 22px;
     padding: 12px 0px 12px 60px;
     background-color: ${props => props.theme.colors.backgroundInput};
+    transition: background-color 400ms ease;
 
     &::placeholder{
         color: ${props => props.theme.colors.placeholderInput}
+        transition: color 400ms ease;
     }
 `;

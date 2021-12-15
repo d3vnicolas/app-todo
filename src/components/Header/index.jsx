@@ -7,6 +7,7 @@ const Banner = styled.header`
     grid-area: header;
     background: url(${props => props.theme.image.banner}) center center no-repeat;
     background-size: cover;
+    transition: background 400ms ease;
 `;
 
 const Header = () => {

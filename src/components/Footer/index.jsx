@@ -8,6 +8,7 @@ const Wrapper = styled.footer`
     
     p{
         color: ${props => props.theme.colors.textFooter};
+        transition: color 400ms ease;
     }
 `;
 

@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid ${props => props.theme.colors.borderTasks};
+    transition: border-bottom 400ms ease;
 
     &:hover > button{
         visibility: visible;

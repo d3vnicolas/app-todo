@@ -19,6 +19,7 @@ const Main = (props) => {
 
     const handleTaskTotal = () => {
         let count = 0;
+        tasks &&
         tasks.map(task => {
             if(!task.completed){count++}
         });
@@ -31,12 +32,23 @@ const Main = (props) => {
     }
 
     const handleAddTask = (taskTitle) => {
-        const taskAdd = [...tasks, {
-            id: Math.random(),
-            title: taskTitle,
-            completed: false
-        }];
-        saveTasks(taskAdd);
+        if(tasks === null){
+            saveTasks([
+                {
+                    id: Math.random(),
+                    title: taskTitle,
+                    completed: false
+                }
+            ]);
+        }else{
+            const taskAdd = [...tasks, {
+                id: Math.random(),
+                title: taskTitle,
+                completed: false
+            }];
+            saveTasks(taskAdd);
+        }
+        
     }
 
 

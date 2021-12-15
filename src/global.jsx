@@ -14,7 +14,11 @@ export default createGlobalStyle`
 body, html{
     width: 100%;
     height: 100%;
+}
+
+body{
     background-color: ${props => props.theme.colors.backgroundBody};
+    transition: background-color 400ms ease;
 }
 
 #root{
@@ -28,12 +32,22 @@ body, html{
         "main"
         "footer"
     ;
+
 }
 
 .container{
     margin: 0 auto;
-    max-width: 550px;
+    max-width: 565px;
     width: 100%;
+    padding: 0 2%;
+}
+
+.preload{
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
 }
 
 `;

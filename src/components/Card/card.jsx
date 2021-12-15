@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
     border-radius: 4px;
     margin-top: 26px !important;
     background-color: ${props => props.theme.colors.backgroundTasks};
+    transition: background-color 400ms ease;
     box-shadow: 0px 0px 16px rgba(0, 0, 0, .2);
 `;
 
@@ -19,6 +20,7 @@ export const Footer = styled.div`
 
 export const ItemsLeft = styled.p`
     color: ${props => props.theme.colors.textTaskFooter}
+    transition: color 400ms ease;
 `;
 
 export const Filters = styled.ul`
@@ -31,8 +33,9 @@ export const Filters = styled.ul`
             text-decoration: none;
             font-weight: bold;
             color: ${props => props.theme.colors.textTaskFooter};
+            transition: color 400ms ease;
 
-            &:hover{
+            &:hover:not(.active){
                 color: ${props => props.theme.colors.textTaskFooterHover}
             }
         }
@@ -48,6 +51,7 @@ export const Clear = styled.button`
     padding: 4px;
     text-decoration: none;
     color: ${props => props.theme.colors.textTaskFooter};
+    transition: color 400ms ease;
     background: none;
     border: none;
     cursor: pointer;
