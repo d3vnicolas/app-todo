@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Master, Head, Title} from './main';
+import { Master, Head, Title } from './main';
 import NewTask from '../NewTask';
 import Card from '../Card';
 import { light, dark } from '../../themes/theme';

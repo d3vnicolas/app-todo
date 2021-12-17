@@ -33,4 +33,8 @@ export const Title = styled.div`
     }
 `;
 
+export const Filters = styled.ul`
+
+`;
+
 

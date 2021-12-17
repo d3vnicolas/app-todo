@@ -4,7 +4,7 @@ import Header from './components/Header';
 import Main from './components/Main';
 
 import { ThemeProvider } from 'styled-components';
-import { light, dark, animation } from './themes/theme';
+import { light, dark } from './themes/theme';
 import GlobalStyle from './global';
 
 
@@ -18,7 +18,7 @@ function App() {
   }, []);
 
   const [toggleTheme, setToggleTheme] = useState(() => {
-    console.log(themeMod);
+
     if(themeMod !== null){
       return themeMod === 'dark' ? dark : light;
     }else{

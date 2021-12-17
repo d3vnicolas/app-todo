@@ -1,63 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
-import { colors } from '../../colors';
 import CheckIcon from '../../images/icon-check.svg';
 
-const Button = styled.div`
+const CheckBtn = styled.div`
+    width: 26px;
+    height: 26px;
+    margin: 0 16px;
+    border-radius: 50%;
+    border: 1px solid ${props => props.theme.colors.borderTasksCircle};
+    ${props => {
+        if(props.completed){
+            return `background: ${props.theme.colors.backgroundCheckButton};`
+        }
+    }}
+
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    padding: 0 12px;
 
-    input{
-        position: absolute;
-        visibility: hidden;
+    img{
+        ${props => {
+            return !props.completed?`display: none;`:'';
+        }}
+        width: 18px;
     }
-
-    input:checked + label{
-        background: ${colors.neutralColors.CheckBackground};
-    }
-    input:checked + label img{
-        display: block;
-    }
-
-    label{
-        user-select: none;
-        appearance: none;
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        border: 1px solid ${props => props.theme.colors.borderTasksCircle};
-        transition: border 400ms ease;
-        margin: 0 8px;
-        position: relative;
-        cursor: pointer;
-
-        img{
-            position: absolute;
-            top: 4px;
-            left: 2px;
-            width: 16px;
-            display: none;
-        }
-    }
-    
 `;
 
-const BtnTask = ({completed, id, handleTaskComplete}) => {
-
-    const handleCheckButton = () => {
-        return completed?'checked':'';
-    }
+const BtnTask = ({ completed }) => {
 
     return (
-        <Button>
-            <input onClick={() => handleTaskComplete(id)} defaultChecked={handleCheckButton()} type="checkbox" id={id} />
-            <label htmlFor={id}>
-                <img src={CheckIcon} />
-            </label>
-        </Button>
+        <CheckBtn completed={completed}>
+            <img src={CheckIcon} />
+        </CheckBtn>
     );
 }
  
