@@ -16,7 +16,7 @@ const Footer = () => {
     return (
         <Wrapper className='container'>
             <p>
-                Segure e arraste para reorganizar.
+                Lista de tarefas.
             </p>
         </Wrapper>
     );
