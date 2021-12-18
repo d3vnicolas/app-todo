@@ -49,8 +49,12 @@
 <br>
 <br>
 
-# 💻 Como rodar
+# 💻 Como rodar/acessar
 
+### Através deste <a href="https://app-todo-topaz.vercel.app/">link</a> você encontra a versão final do projeto.
+<br>
+
+### Para rodar o projeto na sua máquina local:
 
 ```bash
 # Clonar o repositório
@@ -58,7 +62,7 @@ git clone https://github.com/d3vnicolas/app-todo.git
 
 # Entre na IDE de sua preferência 
 
-# Executar o servidor 
+# instalar node-modules
 
 # Por exemplo: 'npm start'
 
