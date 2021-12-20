@@ -5,6 +5,13 @@ export const GlobalContext = createContext({});
 export const GlobalProvider = props => {
     
     const [tasks, setTasks] = useState([]);
+    const [themeMod, setThemeMod] = useState(() => {
+        if(!localStorage.getItem("theme")){
+           return window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';
+        }else{
+            return localStorage.getItem("theme");
+        }
+    });
 
     const saveTasks = (data) => {
         localStorage.setItem("tasks", JSON.stringify(data));
@@ -22,7 +29,9 @@ export const GlobalProvider = props => {
             value={{
                 tasks, 
                 setTasks,
-                saveTasks
+                saveTasks,
+                themeMod, 
+                setThemeMod
             }}        
         >
             {props.children}

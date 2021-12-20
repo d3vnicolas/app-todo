@@ -1,18 +1,20 @@
-import React, {useEffect, useState, useContext} from 'react';
+import React from 'react';
 import { Master, Head, Title } from './main';
 import NewTask from '../NewTask';
 import Card from '../Card';
-import { light, dark } from '../../themes/theme';
+import { useGlobal } from '../../context/global';
 
-const Main = (props) => {
+const Main = () => {
+
+    const { themeMod, setThemeMod } = useGlobal();
 
     const handleToggleTheme = () => {
-        if(props.toggleTheme === light){
-            props.setToggleTheme(dark);
-            localStorage.setItem("theme", "dark");
-        }else{
-            props.setToggleTheme(light);
+        if(themeMod==='dark'){
             localStorage.setItem("theme", "light");
+            setThemeMod("light");
+        }else{
+            localStorage.setItem("theme", "dark");
+            setThemeMod("dark");
         }
     }
 
