@@ -1,8 +1,27 @@
 import React from 'react';
+import { useGlobal } from '../../context/global';
 import BtnTask from '../BtnTask';
 import {Wrapper, Title, Sense, Close} from './task';
 
-const Task = ({handleRemoveTask, title, id, completed, handleTaskComplete}) => {
+const Task = ({title, id, completed, }) => {
+
+    const { tasks, saveTasks } = useGlobal();
+
+    const handleRemoveTask = (taskId) => {
+        const tasksAfter = tasks.filter(task => task.id !== taskId);
+        saveTasks(tasksAfter);
+    }
+
+    const handleTaskComplete = (taskId) => {
+        let tasksAfter = [];
+        for (let i = 0; i < tasks.length; i++) {
+            if(tasks[i].id === taskId){
+                tasks[i].completed = !tasks[i].completed;
+            }
+            tasksAfter.push(tasks[i]);
+        }
+        saveTasks(tasksAfter);
+    }
 
     return (
         <Wrapper>

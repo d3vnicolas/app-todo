@@ -6,6 +6,7 @@ import Main from './components/Main';
 import { ThemeProvider } from 'styled-components';
 import { light, dark } from './themes/theme';
 import GlobalStyle from './global';
+import { GlobalProvider } from './context/global';
 
 
 
@@ -19,12 +20,12 @@ function App() {
 
   const [toggleTheme, setToggleTheme] = useState(() => {
 
-    if(themeMod !== null){
+    if (themeMod !== null) {
       return themeMod === 'dark' ? dark : light;
-    }else{
-      if(window.matchMedia('(prefers-color-scheme: light)').matches){
+    } else {
+      if (window.matchMedia('(prefers-color-scheme: light)').matches) {
         return light
-      }else{
+      } else {
         return dark
       }
     }
@@ -34,9 +35,11 @@ function App() {
     <>
       <ThemeProvider theme={toggleTheme}>
         <GlobalStyle />
-        <Header/>
-        <Main setToggleTheme={setToggleTheme} toggleTheme={toggleTheme}/>
-        <Footer/>
+        <Header />
+        <GlobalProvider>
+          <Main setToggleTheme={setToggleTheme} toggleTheme={toggleTheme} />
+        </GlobalProvider>
+        <Footer />
       </ThemeProvider>
     </>
   );
