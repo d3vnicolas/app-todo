@@ -1,6 +1,7 @@
 import React from 'react';
 import Task from '../Task';
 import styled from 'styled-components';
+import { Droppable } from 'react-beautiful-dnd';
 
 const List = styled.div`
     display: flex;
@@ -10,17 +11,26 @@ const List = styled.div`
 
 const TaskList = ({ tasks }) => {
     return (
-        <List>
-           {tasks.map(task => (
-           <Task 
-                key={task.id} 
-                id={task.id} 
-                title={task.title} 
-                completed={task.completed}
-           />
-           ))}
-        </List>
+        <Droppable droppableId='list'>
+            {(provided) => (
+                <List
+                    {...provided.droppableProps}
+                    ref={provided.innerRef}
+                >
+                    {tasks.map((task, index) => (
+                        <Task
+                            index={index}
+                            key={task.id}
+                            id={task.id}
+                            title={task.title}
+                            completed={task.completed}
+                        />
+                    ))}
+                    {provided.placeholder}
+                </List>
+            )}
+        </Droppable>
     );
 }
- 
+
 export default TaskList;

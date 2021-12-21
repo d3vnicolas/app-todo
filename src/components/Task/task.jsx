@@ -6,8 +6,10 @@ export const Wrapper = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
+    border-radius: 4px;
+    background-color: ${props => props.theme.colors.backgroundTasks};
     border-bottom: 1px solid ${props => props.theme.colors.borderTasks};
-    transition: border-bottom 400ms ease;
+    transition: border-bottom 400ms ease, background-color 400ms ease;
 
     @media(min-width: 580px){
         &:hover > button{
