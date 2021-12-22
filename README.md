@@ -7,6 +7,7 @@
 ## 📖 Informações
 
 <br>
+
 - A Lista será composta pelas tarefas que você julgar necessário.
 - Caso seja seu primeiro acesso ao web app, a lista estará vazia.
 - As informações são salvas no seu <strong>armazenamento local.</strong>
@@ -60,11 +61,14 @@
 # Clonar o repositório
 git clone https://github.com/d3vnicolas/app-todo.git
 
-# Entre na IDE de sua preferência 
+# acesse o repositorio clonado
+cd app-todo
 
-# instalar node-modules
+# instale node-modules 
+npm install
 
-# Por exemplo: 'npm start'
+# inicie o projeto 
+npm start
 
 ```
 <br>
