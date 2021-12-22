@@ -61,11 +61,14 @@
 # Clonar o repositório
 git clone https://github.com/d3vnicolas/app-todo.git
 
-# Entre na IDE de sua preferência 
+# acesse o repositorio clonado
+cd app-todo
 
-# npm install
+# instale node-modules 
+npm install
 
-# npm start
+# inicie o projeto 
+npm start
 
 ```
 <br>
