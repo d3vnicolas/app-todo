@@ -6,37 +6,25 @@ import Main from './components/Main';
 import { ThemeProvider } from 'styled-components';
 import { light, dark } from './themes/theme';
 import GlobalStyle from './global';
+import { useGlobal } from './context/global';
 
 
 
 function App() {
 
-  const [themeMod, setThemeMod] = useState(localStorage.getItem("theme"));
-
   useEffect(() => {
     document.body.classList.remove('preload'); //Evita o efeito de transition no body ao carregar a página.
   }, []);
 
-  const [toggleTheme, setToggleTheme] = useState(() => {
-
-    if(themeMod !== null){
-      return themeMod === 'dark' ? dark : light;
-    }else{
-      if(window.matchMedia('(prefers-color-scheme: light)').matches){
-        return light
-      }else{
-        return dark
-      }
-    }
-  });
+  const { themeMod } = useGlobal();
 
   return (
     <>
-      <ThemeProvider theme={toggleTheme}>
+      <ThemeProvider theme={themeMod==='light'?light:dark}>
         <GlobalStyle />
-        <Header/>
-        <Main setToggleTheme={setToggleTheme} toggleTheme={toggleTheme}/>
-        <Footer/>
+        <Header />
+          <Main />
+        <Footer />
       </ThemeProvider>
     </>
   );

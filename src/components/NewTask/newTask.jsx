@@ -21,8 +21,8 @@ export const NewTask = styled.button`
     padding: 0 8px;
     transition: all 300ms ease;
     cursor: pointer;
-    visibility: ${props => props.visible?'visible':'hidden'};
-    opacity: ${props => props.visible?'1':'0'};
+    visibility: ${props => props.inputTitle?'visible': 'hidden'};
+    opacity: ${props => props.inputTitle?'1': '0'};
 
     &:hover{
         background-color: ${props => props.theme.colors.backgroundButtonHover}; 

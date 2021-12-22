@@ -2,24 +2,40 @@ import React from 'react';
 import TaskList from '../TaskList';
 import { Wrapper, Main, Footer, ItemsLeft, Filters, Clear, FiltersMobile } from './card';
 import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
+import { useGlobal } from '../../context/global';
 
-const Card = (props) => {
+const Card = () => {
+
+    const { tasks, saveTasks } = useGlobal();
+
+    const handleTaskTotal = () => {
+        let count = 0;
+        tasks &&
+        tasks.map(task => {
+            if(!task.completed){count++}
+        });
+        return count;
+    }
+
+    const handleClickRemoveCompletes = () => {
+        const tasksAfter = tasks.filter(task => task.completed === false);
+        saveTasks(tasksAfter);
+    }
 
     const handleTasksRoute = (filter) => {
         switch (filter) {
             default:
-                return props.tasks;
+                return tasks;
                 break;
         
             case 'completes':
-                return props.tasks.filter(task => task.completed === true);
+                return tasks.filter(task => task.completed === true);
                 break;
 
             case 'actives':
-                return props.tasks.filter(task => task.completed === false);
+                return tasks.filter(task => task.completed === false);
                 break;
         }
-        
     }
 
     return (
@@ -28,23 +44,20 @@ const Card = (props) => {
                 <Main>
                     <Routes>
                         <Route 
-                            path="/" 
+                            path="/"
                             element={
-                                props.tasks &&
+                                tasks &&
                                 <TaskList 
-                                    handleTaskComplete={props.handleTaskComplete} 
-                                    handleRemoveTask={props.handleRemoveTask} 
                                     tasks={handleTasksRoute()} 
                                 />
                             }
+                            
                         />
                         <Route 
                             path="/actives" 
                             element={
-                                props.tasks &&
+                                tasks &&
                                 <TaskList 
-                                    handleTaskComplete={props.handleTaskComplete} 
-                                    handleRemoveTask={props.handleRemoveTask} 
                                     tasks={handleTasksRoute('actives')} 
                                 />
                             }
@@ -52,10 +65,8 @@ const Card = (props) => {
                         <Route 
                             path="/completes" 
                             element={
-                                props.tasks &&
+                                tasks &&
                                 <TaskList 
-                                    handleTaskComplete={props.handleTaskComplete} 
-                                    handleRemoveTask={props.handleRemoveTask} 
                                     tasks={handleTasksRoute('completes')} 
                                 />
                             }
@@ -63,14 +74,14 @@ const Card = (props) => {
                     </Routes>
                     <Footer>
                         <ItemsLeft>
-                            {props.handleTaskTotal()} Tarefas restantes
+                            { handleTaskTotal() } Tarefas restantes
                         </ItemsLeft>
                         <Filters>
                             <li><NavLink to="/">Todas</NavLink></li>
                             <li><NavLink to="/actives">Ativas</NavLink></li>
                             <li><NavLink to="/completes">Finalizadas</NavLink></li>
                         </Filters>
-                        <Clear onClick={props.handleClickRemoveCompletes}>
+                        <Clear onClick={handleClickRemoveCompletes}>
                             Remover concluídas
                         </Clear>
                     </Footer>

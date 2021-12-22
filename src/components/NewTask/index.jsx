@@ -2,26 +2,42 @@ import React, { useState } from 'react';
 import {Wrapper, Text, NewTask} from './newTask';
 import {GoDiffAdded} from 'react-icons/go';
 
+import { useGlobal } from '../../context/global';
 
-const Task = (props) => {
-    const [displayBtn, setDisplayBtn] = useState(false);
-    const [inputAdd, setInputAdd] = useState('');
 
-    const handleChangeInput = ({target}) => {
-        setInputAdd(target.value);
-        target.value !== '' ? setDisplayBtn(true) : setDisplayBtn(false);
-    }
+const Task = () => {
 
-    const handleClickAdd = () => {
-        props.handleAddTask(inputAdd);
-        setInputAdd('');
-        setDisplayBtn(false);
+    const [ inputTitle, setInputTitle ] = useState('');
+    const { tasks, saveTasks } = useGlobal();
+
+    const handleAddTask = (taskTitle) => {
+        if(tasks === null){
+            saveTasks([
+                {
+                    id: Math.random(),
+                    title: taskTitle,
+                    completed: false
+                }
+            ]);
+        }else{
+            const taskAdd = [...tasks, {
+                id: Math.random(),
+                title: taskTitle,
+                completed: false
+            }];
+            saveTasks(taskAdd);
+        }        
     }
 
     return (
         <Wrapper>
-            <Text placeholder="Criar nova tarefa..." value={inputAdd} onChange={handleChangeInput}/>
-            <NewTask onClick={handleClickAdd} visible={displayBtn}><GoDiffAdded/></NewTask>
+            <Text placeholder="Criar nova tarefa..." value={inputTitle} onChange={({ target }) => { setInputTitle(target.value) }}/>
+            <NewTask 
+                onClick={() => {handleAddTask(inputTitle); setInputTitle('')}} 
+                inputTitle={inputTitle}
+            >
+                <GoDiffAdded/>
+            </NewTask>
         </Wrapper>
     );
 }
