@@ -50,6 +50,34 @@
 <br>
 <br>
 
+## Screenshots 📸
+
+<p align="center">
+    <img src="./src/images/desktop-dark.png" width="700">
+</p>
+
+<br>
+
+<p align="center">
+    <img src="./src/images/desktop-light.png" width="700">
+</p>
+
+<br>
+
+<p align="center">
+    <img src="./src/images/mobile-dark.png" width="300">
+</p>
+
+<br>
+
+<p align="center">
+    <img src="./src/images/mobile-light.png" width="300">
+</p>
+
+<br>
+<br>
+<br>
+
 # 💻 Como rodar/acessar
 
 ### Através deste <a href="https://app-todo-topaz.vercel.app/">link</a> você encontra a versão final do projeto.
