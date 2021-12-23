@@ -2,6 +2,7 @@ import React from 'react';
 import Task from '../Task';
 import styled from 'styled-components';
 import { Droppable } from 'react-beautiful-dnd';
+import { useGlobal } from '../../context/global';
 
 const List = styled.div`
     display: flex;
@@ -10,27 +11,23 @@ const List = styled.div`
 `;
 
 const TaskList = ({ tasks }) => {
+    const { setMsg } = useGlobal();
+    setMsg(false);
     return (
-        <Droppable droppableId='list'>
-            {(provided) => (
-                <List
-                    {...provided.droppableProps}
-                    ref={provided.innerRef}
-                >
-                    {tasks.map((task, index) => (
-                        <Task
-                            index={index}
-                            key={task.id}
-                            id={task.id}
-                            title={task.title}
-                            completed={task.completed}
-                        />
-                    ))}
-                    {provided.placeholder}
-                </List>
-            )}
-        </Droppable>
-    );
+        <List>
+            {tasks.map((task, index) => (
+                <Task
+                    drag={false}
+                    index={index}
+                    key={task.id}
+                    id={task.id}
+                    title={task.title}
+                    completed={task.completed}
+                />
+            ))}
+
+        </List>
+    )
 }
 
 export default TaskList;

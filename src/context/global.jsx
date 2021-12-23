@@ -4,6 +4,7 @@ export const GlobalContext = createContext({});
  
 export const GlobalProvider = props => {
     
+
     const [tasks, setTasks] = useState([]);
     const [themeMod, setThemeMod] = useState(() => {
         if(!localStorage.getItem("theme")){
@@ -12,6 +13,7 @@ export const GlobalProvider = props => {
             return localStorage.getItem("theme");
         }
     });
+    const [msg, setMsg] = useState(true);
 
     const saveTasks = (data) => {
         localStorage.setItem("tasks", JSON.stringify(data));
@@ -27,11 +29,12 @@ export const GlobalProvider = props => {
     return(
         <GlobalContext.Provider 
             value={{
-                tasks, 
-                setTasks,
+                tasks,
                 saveTasks,
                 themeMod, 
-                setThemeMod
+                setThemeMod,
+                msg,
+                setMsg
             }}        
         >
             {props.children}
