@@ -1,5 +1,6 @@
 import React from 'react';
 import TaskList from '../TaskList';
+import Dragndrop from '../Dragndrop';
 import { Wrapper, Main, Footer, ItemsLeft, Filters, Clear, FiltersMobile } from './card';
 import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
 import { useGlobal } from '../../context/global';
@@ -11,9 +12,9 @@ const Card = () => {
     const handleTaskTotal = () => {
         let count = 0;
         tasks &&
-        tasks.map(task => {
-            if(!task.completed){count++}
-        });
+            tasks.map(task => {
+                if (!task.completed) { count++ }
+            });
         return count;
     }
 
@@ -27,7 +28,7 @@ const Card = () => {
             default:
                 return tasks;
                 break;
-        
+
             case 'completes':
                 return tasks.filter(task => task.completed === true);
                 break;
@@ -37,44 +38,43 @@ const Card = () => {
                 break;
         }
     }
-
+    
     return (
         <Wrapper>
             <Router>
                 <Main>
                     <Routes>
-                        <Route 
+                        <Route
                             path="/"
                             element={
                                 tasks &&
-                                <TaskList 
-                                    tasks={handleTasksRoute()} 
-                                />
-                            }
-                            
-                        />
-                        <Route 
-                            path="/actives" 
-                            element={
-                                tasks &&
-                                <TaskList 
-                                    tasks={handleTasksRoute('actives')} 
+                                <Dragndrop 
+                                    tasks={tasks}
                                 />
                             }
                         />
-                        <Route 
-                            path="/completes" 
+                        <Route
+                            path="/actives"
                             element={
                                 tasks &&
-                                <TaskList 
-                                    tasks={handleTasksRoute('completes')} 
+                                <TaskList
+                                    tasks={handleTasksRoute('actives')}
+                                />
+                            }
+                        />
+                        <Route
+                            path="/completes"
+                            element={
+                                tasks &&
+                                <TaskList
+                                    tasks={handleTasksRoute('completes')}
                                 />
                             }
                         />
                     </Routes>
                     <Footer>
                         <ItemsLeft>
-                            { handleTaskTotal() } Tarefas restantes
+                            {handleTaskTotal()} Tarefas restantes
                         </ItemsLeft>
                         <Filters>
                             <li><NavLink to="/">Todas</NavLink></li>
@@ -95,5 +95,5 @@ const Card = () => {
         </Wrapper>
     );
 }
- 
+
 export default Card;

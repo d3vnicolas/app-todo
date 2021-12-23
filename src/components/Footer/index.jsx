@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useGlobal } from '../../context/global';
 
 const Wrapper = styled.footer`
     display: flex;
@@ -9,14 +10,18 @@ const Wrapper = styled.footer`
     p{
         color: ${props => props.theme.colors.textFooter};
         transition: color 400ms ease;
+        opacity: ${props => props.case?'1':'0'};
+        transition: opacity 300ms ease;
     }
 `;
 
 const Footer = () => {
+    const { msg } = useGlobal();
+    console.log(msg)
     return (
-        <Wrapper className='container'>
+        <Wrapper case={msg} className='container'>
             <p>
-                Lista de tarefas.
+                Segure e arraste para reorganizar.
             </p>
         </Wrapper>
     );
