@@ -44,7 +44,8 @@
 - Marcar tarefas concluídas.
 - Filtrar tarefas.
 - Remover somente tarefas concluídas.
-- Tema dark e light. 
+- Tema claro e escuro. 
+- Reorganização de tarefas.
 
 <br>
 <br>
