@@ -30,7 +30,7 @@ const BtnTask = ({ completed }) => {
 
     return (
         <CheckBtn completed={completed}>
-            <img src={CheckIcon} />
+            <img alt="Icon theme" src={CheckIcon} />
         </CheckBtn>
     );
 }

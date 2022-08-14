@@ -12,7 +12,7 @@ const Card = () => {
     const handleTaskTotal = () => {
         let count = 0;
         tasks &&
-            tasks.map(task => {
+            tasks.forEach(task => {
                 if (!task.completed) { count++ }
             });
         return count;
@@ -27,15 +27,12 @@ const Card = () => {
         switch (filter) {
             default:
                 return tasks;
-                break;
 
             case 'completes':
                 return tasks.filter(task => task.completed === true);
-                break;
 
             case 'actives':
                 return tasks.filter(task => task.completed === false);
-                break;
         }
     }
     
