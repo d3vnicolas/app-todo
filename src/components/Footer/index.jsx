@@ -17,7 +17,6 @@ const Wrapper = styled.footer`
 
 const Footer = () => {
     const { msg } = useGlobal();
-    console.log(msg)
     return (
         <Wrapper case={msg} className='container'>
             <p>
